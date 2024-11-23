@@ -1,0 +1,36 @@
+﻿<Window x:Class="WPFdeneme18kasım.FingerprintValidationPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Parmak İzi Doğrulama" Height="450" Width="600">
+    <Grid>
+        <!-- Başlık -->
+        <TextBlock Text="Parmak İzi Doğrulama" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <!-- Parmak izi okuma simgesi -->
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="150">
+            <Ellipse Width="150" Height="150" Stroke="Gray" StrokeThickness="2"/>
+            <Path Data="M 10,75 Q 50,25 90,75 Q 50,125 10,75 Z" Fill="LightGray" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill">
+                <Path.Triggers>
+                    <!-- Parmak izi okuma animasyonu -->
+                    <EventTrigger RoutedEvent="Path.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0.3" Duration="0:0:1"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Path.Triggers>
+            </Path>
+        </Grid>
+
+        <!-- Okuma Durumu -->
+        <TextBlock x:Name="txtReadingStatus" Text="Parmak izi okunuyor..." FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,60"/>
+        <Button Content="Simüle Et" Name="btnSimulate" Click="btnSimulate_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
+
+        <!-- Yardım Butonu -->
+        <Button x:Name="btnHelp" Content="?" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="40" Height="40" Margin="0,0,40,40" FontSize="20" Click="HelpButton_Click"/>
+
+        <!-- Başarılı Doğrulama Butonu -->
+        <Button x:Name="btnSuccess" Content="Doğrulama Başarılı" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="40" Margin="0,0,0,30" Click="btnSuccess_Click" Visibility="Collapsed"/>
+    </Grid>
+</Window>

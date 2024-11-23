@@ -1,0 +1,26 @@
+﻿<Application x:Class="WPFdeneme18kasım.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WPFdeneme18kasım"
+             StartupUri="PinValidationPage.xaml">
+    <Application.Resources>
+    <!-- Menü Buton Stili -->
+    <Style x:Key="MenuButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="#1B2430"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="Margin" Value="10,5"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#374152"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</Application.Resources>
+
+
+</Application>

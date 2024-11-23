@@ -1,0 +1,65 @@
+﻿<Window x:Class="WPFdeneme18kasım.SignUpPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Sign Up" Height="600" Width="500" Background="White">
+
+    <Window.Resources>
+        <!-- Shared Styles -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="BorderBrush" Value="#D3D3D3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#007ACC"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Margin" Value="0,20"/>
+            <Setter Property="BorderBrush" Value="#007ACC"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#005B9F"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="40">
+        <!-- Başlık -->
+        <TextBlock Text="Sign Up" FontSize="24" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+        <!-- Form -->
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+
+            <!-- Ad -->
+            <TextBlock Text="First Name" Foreground="Black" FontSize="16" Margin="0,10"/>
+            <TextBox x:Name="txtFirstName" Style="{StaticResource TextBoxStyle}"/>
+
+            <!-- Soyad -->
+            <TextBlock Text="Last Name" Foreground="Black" FontSize="16" Margin="0,10"/>
+            <TextBox x:Name="txtLastName" Style="{StaticResource TextBoxStyle}"/>
+
+            <!-- E-posta -->
+            <TextBlock Text="Email Address" Foreground="Black" FontSize="16" Margin="0,10"/>
+            <TextBox x:Name="txtEmail" Style="{StaticResource TextBoxStyle}"/>
+
+            <!-- Telefon -->
+            <TextBlock Text="Phone Number" Foreground="Black" FontSize="16" Margin="0,10"/>
+            <TextBox x:Name="txtPhone" Style="{StaticResource TextBoxStyle}"/>
+
+            <!-- Kaydol Butonu -->
+            <Button x:Name="btnSignUp" Content="Sign Up" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Center" Click="btnSignUp_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
