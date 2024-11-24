@@ -1,0 +1,26 @@
+﻿@model Entities.User
+
+<h2>Kullanıcı Ekle</h2>
+
+<form method="post" asp-action="Add">
+    <div>
+        <label>Kullanıcı Adı:</label>
+        <input type="text" asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+    <div>
+        <label>PIN:</label>
+        <input type="text" asp-for="Pin" />
+        <span asp-validation-for="Pin"></span>
+    </div>
+    <button type="submit">Ekle</button>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <p style="color:green">@TempData["Message"]</p>
+}
+@if (TempData["Error"] != null)
+{
+    <p style="color:red">@TempData["Error"]</p>
+}

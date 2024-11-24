@@ -15,6 +15,7 @@ namespace Business.Abstract
 		// Placeholder methods for face recognition and fingerprint scanning
 		IResult VerifyFaceRecognition(string faceData);
 		IResult VerifyFingerprint(string fingerprintData);
+		IResult VerifyPin(string userName, string pin);
 
 	}
 }

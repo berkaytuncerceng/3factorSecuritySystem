@@ -1,9 +1,11 @@
 ﻿using Core.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities
 {
 	public class User : IEntity
 	{
+		[Key] 
 		public int UserId { get; set; }
 		public string? Username { get; set; }
 		public string? Pin { get; set; }

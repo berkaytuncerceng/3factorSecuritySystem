@@ -80,6 +80,16 @@ namespace Business.Concrete
 				return new ErrorDataResult<User>("Kullanıcı getirilirken bir hata oluştu: " + ex.Message);
 			}
 		}
+		public IResult VerifyPin(string userName, string pin)
+		{
+			var user = _userDal.Get(u => u.Username == userName && u.Pin == pin);
+			if (user != null)
+			{
+				return new Result(true, "Giriş başarılı.");
+			}
+			return new Result(false, "Kullanıcı adı veya şifre yanlış.");
+		}
+
 
 		// Placeholder methods for face recognition and fingerprint scanning
 		public IResult VerifyFaceRecognition(string faceData)

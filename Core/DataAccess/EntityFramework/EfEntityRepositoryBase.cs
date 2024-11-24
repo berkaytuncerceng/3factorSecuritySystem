@@ -37,7 +37,6 @@ namespace Core.DataAccess.EntityFramework
 			}
 		}
 
-
 		public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
 		{
 			using (var context = new TContext())
@@ -53,7 +52,6 @@ namespace Core.DataAccess.EntityFramework
 				return query.ToList();  // Son olarak, veriler listeye dönüştürülür.
 			}
 		}
-
 
 		public void Update(TEntity entity)
 		{
