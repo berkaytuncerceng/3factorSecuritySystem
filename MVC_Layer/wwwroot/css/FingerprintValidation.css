@@ -1,0 +1,110 @@
+﻿/* Genel Stil */
+body {
+    background: linear-gradient(to right, #37474f, #455a64);
+    font-family: 'Arial', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    margin: 0;
+}
+
+/* Başlık */
+h1 {
+    font-size: 2rem;
+    color: #00e676;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Parmak İzi Okuma Alanı */
+.fingerprint-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fingerprint-icon {
+    font-size: 120px;
+    color: #00e676;
+    animation: fingerprintAnimation 2s ease-in-out infinite;
+}
+
+@keyframes fingerprintAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Butonlar */
+.btn-custom {
+    background: #00e676;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+    .btn-custom:hover {
+        background: #00c853;
+    }
+
+/* Bilgilendirme Mesajı */
+.message {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    color: #fbc02d;
+}
+
+/* Parmak izi okuma animasyonu */
+.fingerprint-reading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.fingerprint-circle {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #00e676;
+    border-radius: 50%;
+    position: relative;
+    animation: fingerprintSpin 2s linear infinite;
+}
+
+@keyframes fingerprintSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 576px) {
+    .fingerprint-icon {
+        font-size: 80px;
+    }
+
+    .btn-custom {
+        width: 100%;
+        padding: 12px 25px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -19,25 +19,77 @@ public class HomeController : Controller
 		return View(); // Views/Home/Index.cshtml dosyasını döndürür
 	}
 
-	// POST: Home/Add
-	[HttpPost]
-	public IActionResult Add(User user)
+
+
+	[HttpGet]
+	public IActionResult Register()
 	{
-		if (ModelState.IsValid) // Model doğrulama başarılı mı?
+		return View();
+	}
+
+	[HttpPost]
+	public IActionResult Register(User user)
+	{
+		if (ModelState.IsValid)
 		{
-			var result = _userService.Add(user); // Kullanıcıyı ekle
+			user.CreatedAt = DateTime.Now;
+			user.UpdatedAt = DateTime.Now;
+			user.FaceData = null; // Şimdilik boş bırakılıyor
+			user.FingerprintData = null; // Şimdilik boş bırakılıyor
+
+			var result = _userService.Add(user); // Kullanıcıyı kaydet
 			if (result.Succeeded)
 			{
-				TempData["Message"] = "Kullanıcı başarıyla eklendi!";
-				return RedirectToAction("Index"); // Başarıyla eklendiğinde Index'e yönlendir
+				TempData["SuccessMessage"] = "Kayıt başarılı! PIN ile giriş yapabilirsiniz.";
+				return RedirectToAction("Index");
 			}
-			else
-			{
-				TempData["Error"] = "Hata: " + result.Message;
-			}
+			TempData["ErrorMessage"] = result.Message;
 		}
-
-		return View("Index"); // Hata durumunda tekrar Index görünümünü döndür
+		return View(user);
 	}
+
+
+
+	[HttpPost]
+	public IActionResult Login(string Username, string Pin)
+	{
+		var user = _userService.GetAll().Data.FirstOrDefault(u => u.Username == Username && u.Pin == Pin);
+		if (user != null)
+		{
+			// Doğrulama başarılı, yüz tanıma ekranına yönlendir
+			return RedirectToAction("Index", "FaceRecognition");
+		}
+		else
+		{
+			// Hata mesajı
+			TempData["ErrorMessage"] = "Kullanıcı adı veya PIN yanlış!";
+			return RedirectToAction("Index");
+		}
+	}
+
+
+
+
+
+	//// POST: Home/Add
+	//[HttpPost]
+	//public IActionResult Add(User user)
+	//{
+	//	if (ModelState.IsValid) // Model doğrulama başarılı mı?
+	//	{
+	//		var result = _userService.Add(user); // Kullanıcıyı ekle
+	//		if (result.Succeeded)
+	//		{
+	//			TempData["Message"] = "Kullanıcı başarıyla eklendi!";
+	//			return RedirectToAction("Index"); // Başarıyla eklendiğinde Index'e yönlendir
+	//		}
+	//		else
+	//		{
+	//			TempData["Error"] = "Hata: " + result.Message;
+	//		}
+	//	}
+
+	//	return View("Index"); // Hata durumunda tekrar Index görünümünü döndür
+	//}
 }
 

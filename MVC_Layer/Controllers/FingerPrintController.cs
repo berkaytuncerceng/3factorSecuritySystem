@@ -6,7 +6,7 @@ namespace MVC_Layer.Controllers
 	{
 		public IActionResult Index()
 		{
-			return View();
+			return View(Index);
 		}
 	}
 }

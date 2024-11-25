@@ -1,17 +1,48 @@
 ﻿@{
-    ViewData["Title"] = "Yüz Tanıma Doğrulama";
+    Layout = null;
 }
 
-<div class="container text-center mt-5">
-    <h1>3 Aşamalı Güvenlik Sistemi</h1>
-    <h3>2. Aşama: Yüz Tanıma</h3>
-
-    <div class="mt-4">
-        <p>Kamerayı açarak yüzünüzü taratın.</p>
-        <a href="/FingerPrint/Index" class="btn btn-primary mt-3">Devam Et</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yüz Tanıma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/css/FaceRecognition.css" rel="stylesheet"> <!-- Dış CSS dosyasını dahil ettik -->
+</head>
+<body>
+    <div class="container">
+        <h1>Kamera Açıldı</h1>
+        <video id="videoElement" autoplay></video>
+        <div>
+            <button class="btn btn-custom" id="captureBtn">Tanımaya Başla</button>
+            <button class="btn btn-pass" id="passBtn">Geç (Parmak İzi)</button>
+        </div>
     </div>
 
-    <p class="mt-5">
-        <a href="/Home/Index" class="btn btn-link">Geri Dön</a>
-    </p>
-</div>
+    <script>
+        const videoElement = document.getElementById("videoElement");
+
+        // Kamerayı açma işlemi
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                videoElement.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error("Kamera açılırken bir hata oluştu:", error);
+                alert("Kameraya erişim izni gerekli.");
+            });
+
+        // Tanıma başlatma düğmesi
+        document.getElementById("captureBtn").addEventListener("click", () => {
+            alert("Tanıma işlemi başlatılacak.");
+        });
+
+        // "Geç (Parmak İzi)" butonuna tıklanınca parmak izi sayfasına yönlendirme
+        document.getElementById("passBtn").addEventListener("click", function () {
+            window.location.href = "/Fingerprint/Index"; // Parmak izi sayfasına yönlendirme
+        });
+    </script>
+</body>
+</html>
