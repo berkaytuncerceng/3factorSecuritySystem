@@ -1,85 +1,130 @@
-﻿/* Genel stil */
+﻿/* Genel Ayarlar */
 body {
-    background: linear-gradient(to right, #ede7f6, #d1c4e9);
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    padding-top: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
     margin: 0;
-    color: #333;
+    padding: 0;
 }
 
-/* Başlık */
-h1 {
+/* Gradient Arka Plan */
+.bg-gradient {
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa); /* Modern mor tonları */
+    height: 100vh;
+}
+
+/* Kart ve İçerik */
+.card {
+    border: none;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 30px;
+}
+
+.card-title {
     font-size: 2rem;
-    color: #673ab7;
-    font-weight: bold;
+    font-weight: 600;
+    color: #333 !important; 
     margin-bottom: 20px;
 }
 
-/* Video alanı */
 video {
-    border: 4px solid #673ab7;
     border-radius: 12px;
-    width: 80%;
-    max-width: 700px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    object-fit: cover;
 }
 
-    /* Video üzerine hover efekti */
-    video:hover {
+/* Butonlar */
+.btn-primary-custom {
+    background-color: #6a1b9a;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+    .btn-primary-custom:hover {
+        background-color: #4e148c;
         transform: scale(1.05);
     }
 
-/* Buton stilleri */
-.btn-custom {
-    background: #673ab7;
-    color: white;
-    font-weight: bold;
-    padding: 12px 30px;
-    border-radius: 25px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+.btn-secondary-custom {
+    background-color: #8e24aa;
+    color: #ffffff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
-    .btn-custom:hover {
-        background: #512da8;
+    .btn-secondary-custom:hover {
+        background-color: #6a1b9a;
+        transform: scale(1.05);
     }
 
-.btn-pass {
-    background: #ff5722;
-    color: white;
-    font-weight: bold;
-    padding: 12px 30px;
-    border-radius: 25px;
-    margin-left: 15px;
-    transition: background-color 0.3s ease;
+/* Sayaç (Yüz Tanıma Yükleme) */
+.progress-circle {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #ffffff;
+    border-top: 8px solid #6a1b9a;
+    animation: rotate 2s linear infinite;
+    display: none;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
 }
 
-    .btn-pass:hover {
-        background: #e64a19;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
     }
 
-/* Buton container'ı */
-div {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Genel düzenlemeler */
+.container-fluid {
+    background-color: transparent;
+}
+
+.d-flex {
     display: flex;
-    justify-content: center;
-    margin-top: 30px;
 }
 
-/* Mobil uyumluluk */
-@media (max-width: 576px) {
-    h1 {
-        font-size: 1.5rem;
-    }
+.gap-4 {
+    gap: 30px;
+}
 
-    video {
-        width: 90%;
-        max-width: 500px;
-    }
+/* Başlık ve video alanı */
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
 
-    .btn-custom, .btn-pass {
-        width: 100%;
-        margin: 10px 0;
-    }
+.video-container {
+    position: relative;
+}
+
+video {
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-height: 400px;
+    object-fit: cover;
+    width: 100%;
 }

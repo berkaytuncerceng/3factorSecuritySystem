@@ -6,31 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Yap</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/css/PinValidation.css" rel="stylesheet"> <!-- Dış CSS dosyasını ekledik -->
+    <link href="~/css/PinValidation.css" rel="stylesheet">
 </head>
 <body>
-    <div class="form-container">
-        <h2 class="form-title">Giriş Yap</h2>
-        <form asp-action="Login" method="post">
-            <div class="mb-3">
-                <label for="Username" class="form-label">Kullanıcı Adı:</label>
-                <input type="text" id="Username" name="Username" class="form-control" placeholder="Kullanıcı adınızı girin" required>
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center gradient-bg">
+        <div class="card shadow-lg p-4 rounded-4" style="max-width: 400px; background-color: #fff;">
+            <div class="card-body text-center">
+                <img src="~/logo.png" alt="Logo" class="mb-3" style="width: 100px;">
+                <h3 class="card-title mb-3 text-dark">Giriş Yap</h3>
+                <p class="text-muted">PIN ile güvenli giriş sağlayın.</p>
+                <form asp-action="Login" method="post" class="mt-4">
+                    <div class="mb-3">
+                        <input type="text" id="Username" name="Username" class="form-control form-input" placeholder="Kullanıcı Adı" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" id="Pin" name="Pin" class="form-control form-input" placeholder="PIN" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-custom">Giriş Yap</button>
+                    </div>
+                </form>
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <p class="error-message text-danger mt-3">@TempData["ErrorMessage"]</p>
+                }
+                <p class="mt-4 text-muted">Hesabınız yok mu? <a href="/Home/Register" class="link-custom">Kayıt Ol</a></p>
             </div>
-            <div class="mb-3">
-                <label for="Pin" class="form-label">PIN:</label>
-                <input type="password" id="Pin" name="Pin" class="form-control" placeholder="PIN'inizi girin" required>
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-custom">Giriş Yap</button>
-            </div>
-        </form>
-
-        @if (TempData["ErrorMessage"] != null)
-        {
-            <p class="error-message mt-3">@TempData["ErrorMessage"]</p>
-        }
+        </div>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

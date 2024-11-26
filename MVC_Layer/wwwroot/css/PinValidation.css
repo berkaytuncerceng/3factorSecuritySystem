@@ -1,100 +1,72 @@
-﻿/* Genel stil */
+﻿/* Genel Ayarlar */
 body {
-    background: linear-gradient(to right, #e3f2fd, #bbdefb);
     font-family: 'Arial', sans-serif;
+    background-color: #3a0ca3; /* Gradient için temel mor */
     margin: 0;
     padding: 0;
 }
 
-/* Form container */
-.form-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-out;
+/* Gradient Arka Plan */
+.gradient-bg {
+    background: linear-gradient(135deg, #3a0ca3, #7209b7);
 }
 
-/* Fade-in animasyonu */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
+/* Form ve Kart */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Başlık */
-.form-title {
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.6rem;
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
     color: #333;
-    font-weight: bold;
 }
 
-/* Form kontrol etiketleri */
-.form-label {
-    font-weight: bold;
-    color: #555;
+.form-input {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Input alanları */
-.form-control {
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-    .form-control:focus {
-        background-color: #ffffff;
-        box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
-        border-color: #007bff;
+    .form-input:focus {
+        border-color: #3a0ca3;
+        box-shadow: 0 0 5px rgba(58, 12, 163, 0.5);
         outline: none;
     }
 
-/* PIN girişine özel stil */
-#Pin {
-    font-family: 'Arial', sans-serif;
-    letter-spacing: 2px;
-    text-align: center;
-}
-
-/* Gönder butonu */
+/* Buton */
 .btn-custom {
-    background-color: #007bff;
-    color: white;
+    background-color: #3a0ca3;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
     font-weight: bold;
-    padding: 12px;
-    border-radius: 10px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
     .btn-custom:hover {
-        background-color: #0056b3;
+        background-color: #5a189a;
     }
 
-/* Hata mesajı */
+/* Hata Mesajı */
 .error-message {
-    text-align: center;
-    color: #dc3545;
+    color: #e63946;
     font-weight: bold;
-    margin-top: 20px;
 }
 
-/* Medya sorgusu (mobil uyum) */
-@media (max-width: 576px) {
-    .form-container {
-        margin: 20px;
-        padding: 25px;
-    }
-
-    .btn-custom {
-        font-size: 1.1rem;
-    }
+/* Link */
+.link-custom {
+    color: #3a0ca3;
+    font-weight: bold;
+    text-decoration: none;
 }
+
+    .link-custom:hover {
+        text-decoration: underline;
+    }
