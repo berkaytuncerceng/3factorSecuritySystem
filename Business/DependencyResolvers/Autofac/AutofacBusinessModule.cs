@@ -21,8 +21,8 @@ namespace Business.DependencyResolvers.Autofac
 			builder.RegisterType<SystemLogManager>().As<ISystemLogService>();
 			builder.RegisterType<EfSystemLogDal>().As<ISystemLogDal>();
 
-
-
+			builder.RegisterType<EfFaceDal>().As<IFaceDal>();
+			builder.RegisterType<FaceRecognitionManager>().As<IFaceRecognitionService>();
 		}
 	}
 }

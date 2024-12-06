@@ -36,6 +36,7 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
 
+
 // Varsayılan route'u ayarlıyoruz
 app.MapControllerRoute(
 	name: "default",

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="pythonnet" Version="3.0.4" />
   </ItemGroup>
 
   <ItemGroup>

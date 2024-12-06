@@ -18,6 +18,8 @@ namespace DataAccess.Concrete.EntityFramework.Contexts
 		public DbSet<User> Users { get; set; }
 		public DbSet<LoginAttempt> LoginAttempts { get; set; }
 		public DbSet<SystemLog> SystemLogs { get; set; }
+		public DbSet<Face> Faces { get; set; }
+
 
 		// OnConfiguring metodu
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
